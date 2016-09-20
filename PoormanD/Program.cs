@@ -14,19 +14,21 @@ namespace PoormanD
         {
             // TODO: getopt
             const int port = 1234;
-            const string ipAddress = "127.0.0.1";
 
-            var listener = new TcpListener(
-                IPAddress.Parse(ipAddress),
-                port
-            );
+            var ipAddress = Dns.Resolve(Dns.GetHostName()).AddressList[0];
+            var ipLocalEndPoint = new IPEndPoint(ipAddress, port);
+
+            try
+            {
+                var listener = new TcpListener(ipLocalEndPoint);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+
             listener.Start();
-
-            Console.WriteLine(
-                "Listen on {0}:{1}",
-                ((IPEndPoint)listener.LocalEndpoint).Address,
-                ((IPEndPoint)listener.LocalEndpoint).Port
-            );
+            Console.WriteLine("Listen on {0}:{1}", ipLocalEndpoint.Address, ipLocalEndpoint.Port);
         }
     }
 }
