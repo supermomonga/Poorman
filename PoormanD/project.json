@@ -3,14 +3,15 @@
   "buildOptions": {
     "emitEntryPoint": true
   },
-
   "dependencies": {
+    "Microsoft.EntityFrameworkCore": "1.0.1",
+    "Microsoft.EntityFrameworkCore.Sqlite": "1.0.1",
     "Microsoft.NETCore.App": {
       "type": "platform",
       "version": "1.0.0"
-    }
+    },
+    "X.Grpc": "1.1.0-dev-20160831"
   },
-
   "frameworks": {
     "netcoreapp1.0": {
       "imports": "dnxcore50"
