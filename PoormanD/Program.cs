@@ -13,8 +13,8 @@ namespace PoormanD
         public static void Main(string[] args)
         {
             // TODO: getopt
-            var port = 1234;
-            var ipAddress = "127.0.0.1";
+            const int port = 1234;
+            const string ipAddress = "127.0.0.1";
 
             var listener = new TcpListener(
                 IPAddress.Parse(ipAddress),
