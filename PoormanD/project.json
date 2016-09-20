@@ -6,8 +6,11 @@
   "dependencies": {
     "Microsoft.EntityFrameworkCore": "1.0.1",
     "Microsoft.EntityFrameworkCore.Sqlite": "1.0.1",
-    "Microsoft.NETCore.App": "1.0.1",
-    "X.Grpc": "1.1.0-dev-20160831"
+    "Microsoft.NETCore.App": {
+      "type": "platform",
+      "version": "1.0.1"
+    },
+    "MsgPack.Cli": "0.8.0"
   },
   "frameworks": {
     "netcoreapp1.0": {
