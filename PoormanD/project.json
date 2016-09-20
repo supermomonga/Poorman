@@ -4,13 +4,15 @@
     "emitEntryPoint": true
   },
   "dependencies": {
+    "Microsoft.DotNet.Cli.Utils": "1.0.0-preview2-003121",
     "Microsoft.EntityFrameworkCore": "1.0.1",
     "Microsoft.EntityFrameworkCore.Sqlite": "1.0.1",
     "Microsoft.NETCore.App": {
       "type": "platform",
       "version": "1.0.1"
     },
-    "MsgPack.Cli": "0.8.0"
+    "MsgPack.Cli": "0.8.0",
+    "System.CommandLine": "0.1.0-e160920-1"
   },
   "frameworks": {
     "netcoreapp1.0": {

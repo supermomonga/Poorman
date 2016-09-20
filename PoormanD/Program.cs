@@ -6,30 +6,35 @@ using System.Linq.Expressions;
 using System.Net;
 using System.Threading.Tasks;
 using System.Net.Sockets;
+using System.CommandLine;
 
 namespace PoormanD
 {
     public class Program
     {
+
         public static void Main(string[] args)
         {
-            MainAsync(args).GetAwaiter().GetResult();
+            var address = "0.0.0.0";
+            var port = 55301;
+            ArgumentSyntax.Parse(args, syntax =>
+            {
+                syntax.DefineOption("a|address", ref address, "IP address to listen");
+                syntax.DefineOption("p|port", ref port, "Port to listen");
+            });
+
+            ListenAsync(address, port).GetAwaiter().GetResult();
         }
 
-        static async Task MainAsync(string[] args)
+        static async Task ListenAsync(string address, int port)
         {
-            // TODO: getopt from args
-            const int port = 1234;
-            const string host = "localhost";
-
             try
             {
                 // Get IP address from hostname and listen it.
-                var ipAddresses = await Dns.GetHostAddressesAsync(host);
-                var ipLocalEndPoint = new IPEndPoint(ipAddresses[0], port);
-                var listener = new TcpListener(ipLocalEndPoint);
+                var ipAddress = IPAddress.Parse(address);
+                var listener = new TcpListener(ipAddress, port);
                 listener.Start();
-                Console.WriteLine("Listen on {0}:{1}", ipLocalEndPoint.Address, ipLocalEndPoint.Port);
+                Console.WriteLine("Listen on {0}:{1}", ipAddress, port);
             }
             catch (Exception e)
             {
