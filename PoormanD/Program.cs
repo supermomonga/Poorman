@@ -26,7 +26,7 @@ namespace PoormanD
             {
                 // Get IP address from hostname and listen it.
                 var ipAddresses = await Dns.GetHostAddressesAsync(host);
-                var ipLocalEndPoint = new IPEndPoint(ipAddresses[1], port);
+                var ipLocalEndPoint = new IPEndPoint(ipAddresses[0], port);
                 var listener = new TcpListener(ipLocalEndPoint);
                 listener.Start();
                 Console.WriteLine("Listen on {0}:{1}", ipLocalEndPoint.Address, ipLocalEndPoint.Port);
