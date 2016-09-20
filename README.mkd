@@ -1,0 +1,10 @@
+
+# Poorman
+
+Poorman は、任意のアプリケーションに対応するボトルネック洗い出し用のツールセットです。Poorman は以下の 2 つのプロジェクトで構成されています。
+
+|プロジェクト|概要|
+|---|---|
+|[PoormanD](https://github.com/supermomonga/Poorman/tree/master/PoormanD)|任意のアプリケーションから gRPC を用いて集計用ログデータを受け取るデーモンです|
+|PoormanWeb|PoormanD が記録したログデータを可視化するウェブアプリケーションです|
+
