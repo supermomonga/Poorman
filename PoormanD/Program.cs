@@ -26,7 +26,7 @@ namespace PoormanD
             ListenAsync(address, port).GetAwaiter().GetResult();
         }
 
-        static async Task ListenAsync(string address, int port)
+        private static async Task ListenAsync(string address, int port)
         {
             try
             {
