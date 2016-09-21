@@ -14,6 +14,7 @@ namespace PoormanD
             var newExtention = existingExtention == null
                 ? new CustomSqliteOptionsExtension()
                 : new CustomSqliteOptionsExtension(existingExtention);
+            newExtention.ConnectionString = "Filename=./log.sqlite";
             ((IDbContextOptionsBuilderInfrastructure)optionsBuilder).AddOrUpdateExtension(newExtention);
             optionsBuilder.ConfigureWarnings(
                     w => w.Configuration.TryAddExplicit(
@@ -21,7 +22,6 @@ namespace PoormanD
                         WarningBehavior.Throw
                     )
             );
-            optionsBuilder.UseSqlite("Filename=./log.sqlite");
         }
     }
 }
