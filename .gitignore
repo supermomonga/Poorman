@@ -187,3 +187,5 @@ ModelManifest.xml
 .DS_Store?
 # JetBrains IDEs
 .idea
+# VSCode
+.vscode
