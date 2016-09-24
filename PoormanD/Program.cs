@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Net;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Net.Sockets;
 using System.CommandLine;
+using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Internal;
 using Microsoft.Extensions.Configuration;
@@ -39,6 +41,8 @@ namespace PoormanD
             using (var db = new LoggingContext())
             {
                 db.Database.EnsureCreated();
+                db.Database.ExecuteSqlCommand("DELETE FROM events");
+                db.Database.ExecuteSqlCommand("VACUUM");
                 db.Events.Add(new Event()
                 {
                     Context = "capture1",
@@ -72,6 +76,11 @@ namespace PoormanD
                 Console.WriteLine(await db.Events.CountAsync(
                         e => Event.JsonExtract(e.Parameters, "$.key1") == "value1-1"
                 ));
+                Console.WriteLine(
+                await (from e in db.Events
+                where Event.JsonExtract(e.Parameters, "$.key1") == "value1-1"
+                select e).CountAsync()
+                );
             }
 
         }
