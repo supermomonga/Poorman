@@ -1,4 +1,4 @@
 ﻿
 # PoormanD
 
-Poorman のデーモン用プロジェクトです。gRPC でデータを受け取り、データベースに記録します。
+Poorman のデーモン用プロジェクトです。TCP Socket 経由で MessagePack 形式のデータを受け取り、データベースに記録します。

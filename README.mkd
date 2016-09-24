@@ -5,6 +5,7 @@ Poorman は、任意のアプリケーションに対応するボトルネック
 
 |プロジェクト|概要|
 |---|---|
-|[PoormanD](https://github.com/supermomonga/Poorman/tree/master/PoormanD)|任意のアプリケーションから gRPC を用いて集計用ログデータを受け取るデーモンです|
+|[PoormanD](https://github.com/supermomonga/Poorman/tree/master/PoormanD)|任意のアプリケーションから TCP Socket 通信を用いて MessagePack 形式の集計用ログデータを受け取るデーモンです|
+|PoormanLogProxy|指定したファイルのファイルディスクリプタを監視し、書き込まれたデータを PoormanD に転送するデーモンです|
 |PoormanWeb|PoormanD が記録したログデータを可視化するウェブアプリケーションです|
 
